@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>TEST</title>
+  </head>
+  <body>
+    <div id="container">
+
+    </div>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.js"></script>
+        <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+        <script type="text/javascript">
+        $(function () {
+                var url = "http://127.0.0.1:5242/q?start=2013/04/04-12:00:00&m=avg:720h-avg:dasboard.uprate.percent.avg%7Burl=www.wandoujia.com,uri=*%7D&ascii&charttype=highcharts2&callback=?"
+                $.getJSON(url, function(data) {
+                        for (i in data) {
+                                data[i].type = 'column';
+                        }
+
+                        $('#container').highcharts({
+                                chart: {
+                                        zoomType: 'x',
+                                        spacingRight: 20
+                                },
+                                title: {
+                                        text: 'Some Test Graph'
+                                },
+                                xAxis: {
+                                        type: 'datetime',
+                                        maxZoom: 3600000, // fourteen days
+                                        title: {
+                                                text: null
+                                        }
+                                },
+                                yAxis: {
+                                        title: {
+                                                text: 'rate'
+                                        },
+                                },
+                                tooltip: {
+                                        shared: true,
+                                },
+                                legend: {
+                                        enabled: true
+                                },
+                                plotOptions: {
+                                        line: {
+                                                fillColor: {
+                                                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                                                        stops: [
+                                                                [0, Highcharts.getOptions().colors[0]],
+                                                                [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                                                        ]
+                                                },
+                                                lineWidth: 1,
+                                                marker: {
+                                                        enabled: true
+                                                },
+                                                shadow: false,
+                                                states: {
+                                                        hover: {
+                                                                lineWidth: 1
+                                                        }
+                                                },
+                                                threshold: null
+                                        },
+                                        column: {
+                                                dataLabels: {
+                                                        enabled: true,
+                                                },
+                                        }
+                                },
+
+                                series: data
+                        });
+                });
+        });
+
+        </script>
+
+  </body>
+</html>
