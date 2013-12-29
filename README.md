@@ -80,3 +80,7 @@ Format:
 ...
 ]
 `
+
+### JSONP
+
+The time serial data always used in an cross site way, so we also support JSONP, just add parameter callback=<jsonpfunctions>, the data will be in a jsonp version.
