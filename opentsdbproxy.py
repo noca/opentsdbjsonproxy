@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-@author: xiaoyunpeng@wandoujia.com
+@author: sbc19861004@gmail.com
 @date: Wed Dec 25 18:40:57 2013
-
-Copyright (c) 2012, Wandou Labs and/or its affiliates. All rights reserved.
-WANDOU LABS PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
 """
 
 ODBHOST="http://127.0.0.1:4242"
